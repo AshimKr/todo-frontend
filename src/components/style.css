@@ -1,0 +1,9 @@
+.edit{
+    display: inline-block;
+    margin: 4px;
+    
+}
+
+.delete{    
+    display: inline-block;
+}

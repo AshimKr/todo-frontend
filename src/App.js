@@ -1,25 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import AddTodoForm from './components/AddTodoForm';
+import TodoList from './components/TodoList';
+import { createContext, useState } from 'react';
+
+const updateContext = createContext();
 
 function App() {
-  return (
+  const [apiCall,setApiCall] = useState([]);
+  
+  // console.log(apiCall);
+   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <updateContext.Provider value={{apiCall, setApiCall}}>
+        <Header />
+        <AddTodoForm />
+        <TodoList />
+      </updateContext.Provider>
     </div>
   );
 }
 
 export default App;
+export {updateContext};
